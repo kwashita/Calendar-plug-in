@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="css/calendar-pro.css" />
+  <style>
+    .demo-box{
+      width: 100%;
+    }
+    .ht-rili-date {
+      width: 120px;
+    }
+
+    .ht-rili-td {
+      height: 60px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 容器布局 -->
+  <div class="calendar-box demo-box"></div>
+
+  <!-- <button onclick="getActive()">获取选中日期值</button> -->
+</body>
+<script src="js/jquery-2.1.4.min.js"></script>
+<script src="js/calendar-pro.js"></script>
+<script>
+  $('.calendar-box').calendar({
+    ele: '.demo-box', //依附
+    title: '选择预约时间',
+    // beginDate : '2018-07-23',
+    // endDate : '2018-07-26',
+    data: [
+      { date: '2018-07-23', data: '107' },
+      { date: '2018-07-24', data: '108' },
+      { date: '2018-07-25', data: '109' },
+      { date: '2018-07-26', data: '110' },
+      { date: '2018-07-27', data: '55' },
+    ]
+  });
+  function getActive() {
+    var data = $('.calendar-box').calendarGetActive();
+    console.log(data);
+    // console.log(data.money); 
+    // alert(data.date+"--¥"+data.money);
+  }
+  var ht_rili_td = document.getElementsByClassName('ht-rili-td');
+
+  $('.ht-rili-td').on('click', function () {
+    var data = $('.calendar-box').calendarGetActive();
+    console.log(data);
+  })
+</script>
+
+</html>
